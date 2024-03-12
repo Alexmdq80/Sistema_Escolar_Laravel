@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Plan_Estudio extends Model
+class Escuela_Nivel_Modalidad extends Model
 {
     use HasFactory;
 
-    protected $table = "plan_estudio";
+    protected $table = "escuela_nivel_modalidad";
 
+    public $timestamps = false; 
+
+ 
 }

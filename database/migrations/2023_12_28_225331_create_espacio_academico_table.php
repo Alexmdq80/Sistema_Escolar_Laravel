@@ -13,12 +13,16 @@ return new class extends Migration
     {
         Schema::create('espacio_academico', function (Blueprint $table) {
             $table->smallIncrements('id');
+            $table->tinyInteger('id_plan_estudio')->unsigned();
+            $table->foreign('id_plan_estudio')->references('id')->on('plan_estudio');
+            $table->tinyInteger('id_anio')->unsigned();
+            $table->foreign('id_anio')->references('id')->on('anio');
             $table->smallInteger('id_propuesta_institucional')->unsigned();
             $table->foreign('id_propuesta_institucional')->references('id')->on('propuesta_institucional');
             $table->tinyInteger('id_seccion_tipo')->unsigned();
             $table->foreign('id_seccion_tipo')->references('id')->on('seccion_tipo');
             $table->string('division', 3);
-            $table->string('nombre', 30);
+            $table->string('nombre', 50);
             $table->timestamps();
         });
     }

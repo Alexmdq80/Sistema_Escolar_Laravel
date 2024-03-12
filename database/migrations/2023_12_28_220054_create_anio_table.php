@@ -16,7 +16,7 @@ return new class extends Migration
             $table->tinyInteger('id_plan_estudio')->unsigned();
             $table->foreign('id_plan_estudio')->references('id')->on('plan_estudio');
             $table->string('anio', 3);
-            $table->string('nombre', 30);
+            $table->string('nombre', 50);
             $table->timestamps();
         });
     }

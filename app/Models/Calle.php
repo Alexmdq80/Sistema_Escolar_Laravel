@@ -9,5 +9,7 @@ class Calle extends Model
 {
     use HasFactory;
 
+    protected $table = "calle";
+
     public $timestamps = false;
 }

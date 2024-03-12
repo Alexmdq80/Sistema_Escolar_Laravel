@@ -19,7 +19,6 @@ class PersonaSeeder extends Seeder
         $existe = $persona->where('documento_numero', 32126643)
                           ->where('id_documento_tipo', 1) 
                           ->count();
-
         if (!$existe) {
             $persona->id_documento_tipo = 1;
             $persona->id_documento_situacion = 1;
@@ -37,6 +36,8 @@ class PersonaSeeder extends Seeder
 
             $persona->save();
         }
+
+        // Persona::factory(100)->create();
             //
     }
 }

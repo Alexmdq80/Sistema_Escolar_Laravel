@@ -21,7 +21,7 @@ class Usuario_EscuelaSeeder extends Seeder
                            ->where('id_documento_tipo', 1)
                            ->get();
  
-        $usuario = Usuario::where('id_persona', 1)
+        $usuario = Usuario::where('id_persona', 3)
                            ->get();
 
         $existe_ue = $ue::count();

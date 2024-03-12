@@ -9,5 +9,7 @@ class Escuela extends Model
 {
     use HasFactory;
 
+    protected $table = "escuela";
+
     public $timestamps = false;
 }

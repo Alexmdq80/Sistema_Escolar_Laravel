@@ -9,6 +9,7 @@ class Continente extends Model
 {
     use HasFactory;
 
-
+    protected $table = "continente";
+    
     public $timestamps = false;
 }

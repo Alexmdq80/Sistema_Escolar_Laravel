@@ -9,5 +9,7 @@ class Localidad_Asentamiento extends Model
 {
     use HasFactory;
 
+    protected $table = "localidad_asentamiento";
+
     public $timestamps = false;
 }

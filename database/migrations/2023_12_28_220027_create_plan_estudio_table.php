@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('plan_estudio', function (Blueprint $table) {
             $table->tinyInteger('id')->unsigned()->primary();
-         //   $table->date('registro_fecha');
+            $table->string('nombre', 50);
             $table->string('titulo', 75);
             $table->string('resolucion', 50);
             $table->string('orientacion', 50);
