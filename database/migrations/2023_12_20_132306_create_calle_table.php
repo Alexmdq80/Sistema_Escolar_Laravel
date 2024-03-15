@@ -15,15 +15,15 @@ return new class extends Migration
             Schema::create('calle', function (Blueprint $table) {
                     $table->mediumIncrements('id');
                     $table->string('id_georef', 13)->nullable();
-                    $table->smallInteger('id_departamento')->unsigned()->nullable();          
-                    $table->foreign('id_departamento')->references('id')->on('departamento'); 
-                    $table->tinyInteger('id_provincia')->unsigned()->nullable();          
-                    $table->foreign('id_provincia')->references('id')->on('provincia');      
+                    $table->smallInteger('id_departamento')->unsigned()->nullable();
+                    $table->foreign('id_departamento')->references('id')->on('departamento');
+                    $table->tinyInteger('id_provincia')->unsigned()->nullable();
+                    $table->foreign('id_provincia')->references('id')->on('provincia');
                     $table->tinyInteger('id_pais')->unsigned();
-                    $table->foreign('id_pais')->references('id')->on('pais');      
+                    $table->foreign('id_pais')->references('id')->on('pais');
                     $table->tinyInteger('id_continente')->unsigned();
                     $table->foreign('id_continente')->references('id')->on('continente');
-                    $table->smallInteger('id_localidad_censal')->unsigned()->nullable();          
+                    $table->smallInteger('id_localidad_censal')->unsigned()->nullable();
                     $table->foreign('id_localidad_censal')->references('id')->on('localidad_censal');
                     $table->string('nombre', 55);
                     $table->integer('altura_fin_derecha')->nullable();
@@ -31,7 +31,7 @@ return new class extends Migration
                     $table->integer('altura_inicio_derecha')->nullable();
                     $table->integer('altura_inicio_izquierda')->nullable();
                     $table->string('fuente', 50)->nullable();
-                    $table->string('categoria', 50)->nullable();           
+                    $table->string('categoria', 50)->nullable();
             });
         }
     }

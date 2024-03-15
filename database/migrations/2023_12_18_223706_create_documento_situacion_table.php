@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre', 60);
             $table->tinyInteger('orden');
             $table->boolean('vigente');
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 

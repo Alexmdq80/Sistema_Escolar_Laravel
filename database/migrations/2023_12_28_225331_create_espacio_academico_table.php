@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('espacio_academico', function (Blueprint $table) {
-            $table->smallIncrements('id');
+            $table->unsignedSmallInteger('id')->primary();
             $table->tinyInteger('id_plan_estudio')->unsigned();
             $table->foreign('id_plan_estudio')->references('id')->on('plan_estudio');
             $table->tinyInteger('id_anio')->unsigned();

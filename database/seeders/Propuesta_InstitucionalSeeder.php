@@ -24,10 +24,10 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
-
+            $pi->ciclo_lectivo = 2024;
+            $pi->nombre = "PRIMERO MAÑANA BACHILLER CICLO BÁSICO";
             $pi->save();
-        
+
 
             $pi = new Propuesta_Institucional();
 
@@ -36,7 +36,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEGUNDO MAÑANA BACHILLER CICLO BÁSICO";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -47,7 +48,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "TERCERO MAÑANA BACHILLER CICLO BÁSICO";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -59,10 +61,11 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "PRIMERO TARDE BACHILLER CICLO BÁSICO";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
-        
+
 
             $pi = new Propuesta_Institucional();
 
@@ -71,7 +74,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEGUNDO TARDE BACHILLER CICLO BÁSICO";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -82,7 +86,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "TERCERO TARDE BACHILLER CICLO BÁSICO";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -95,10 +100,11 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 3;
             $pi->id_turno_fin = 3;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "A.F NOCHE BACHILLER CICLO BÁSICO";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
-            
+
             // Cs Sociales 4to MAÑANA - TARDE
             $pi = new Propuesta_Institucional();
 
@@ -107,7 +113,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "CUARTO MAÑANA CS.SOCIALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -118,10 +125,11 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "CUARTO TARDE CS.SOCIALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
-            
+
             // Cs Sociales 5to MAÑANA - TARDE
             $pi = new Propuesta_Institucional();
 
@@ -130,7 +138,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "QUINTO MAÑANA CS.SOCIALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -141,7 +150,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "QUINTO TARDE CS.SOCIALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -153,7 +163,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEXTO MAÑANA CS.SOCIALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -164,7 +175,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEXTO TARDE CS.SOCIALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -176,7 +188,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "CUARTO MAÑANA CS.NATURALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -187,10 +200,11 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "CUARTO TARDE CS.NATURALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
-            
+
             // Cs Naturales 5to MAÑANA - TARDE
             $pi = new Propuesta_Institucional();
 
@@ -199,7 +213,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "QUINTO MAÑANA CS.NATURALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -210,7 +225,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "QUINTO TARDE CS.NATURALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -222,7 +238,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEXTO MAÑANA CS.NATURALES";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -233,9 +250,10 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEXTO TARDE CS.NATURALES";
+            $pi->ciclo_lectivo = 2024;
 
-            $pi->save();     
+            $pi->save();
 
             // Economía 4to MAÑANA - TARDE
             $pi = new Propuesta_Institucional();
@@ -245,7 +263,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "CUARTO MAÑANA ECONOMÍA Y ADMINISTRACIÓN";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -256,10 +275,11 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "CUARTO TARDE ECONOMÍA Y ADMINISTRACIÓN";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
-            
+
             // Economía 5to MAÑANA - TARDE
             $pi = new Propuesta_Institucional();
 
@@ -268,7 +288,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "QUINTO MAÑANA ECONOMÍA Y ADMINISTRACIÓN";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -279,7 +300,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "QUINTO TARDE ECONOMÍA Y ADMINISTRACIÓN";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -291,7 +313,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 1;
             $pi->id_turno_fin = 1;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEXTO MAÑANA ECONOMÍA Y ADMINISTRACIÓN";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -302,9 +325,10 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 2;
             $pi->id_turno_fin = 2;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEXTO TARDE ECONOMÍA Y ADMINISTRACIÓN";
+            $pi->ciclo_lectivo = 2024;
 
-            $pi->save();   
+            $pi->save();
 
             // Turismo 4to Noche
             $pi = new Propuesta_Institucional();
@@ -314,10 +338,12 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 3;
             $pi->id_turno_fin = 3;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "CUARTO NOCHE TURISMO";
+
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
-            
+
             // Turismo 5to Noche
             $pi = new Propuesta_Institucional();
 
@@ -326,7 +352,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 3;
             $pi->id_turno_fin = 3;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "QUINTO NOCHE TURISMO";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
 
@@ -338,7 +365,8 @@ class Propuesta_InstitucionalSeeder extends Seeder
             $pi->id_turno_inicio = 3;
             $pi->id_turno_fin = 3;
             $pi->id_jornada = 1;
-            $pi->ciclo_lectivo = 2023;
+            $pi->nombre = "SEXTO NOCHE TURISMO";
+            $pi->ciclo_lectivo = 2024;
 
             $pi->save();
         }

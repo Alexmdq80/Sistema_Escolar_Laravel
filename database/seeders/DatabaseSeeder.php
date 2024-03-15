@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => 'myPassword'
-         ]);  
+         ]);
  */
-        $this->call(AmbitoSeeder::class); 
+        $this->call(AmbitoSeeder::class);
 
         $this->call(Plan_EstudioSeeder::class);
-        
+
         $this->call(AnioSeeder::class);
 
         $this->call(TurnoSeeder::class);
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Propuesta_InstitucionalSeeder::class);
 
         $this->call(Seccion_TipoSeeder::class);
-        
+
         $this->call(Espacio_AcademicoSeeder::class);
 
         $this->call(DependenciaSeeder::class);
@@ -63,11 +63,13 @@ class DatabaseSeeder extends Seeder
         $this->call(UsuarioSeeder::class);
 
         $this->call(Usuario_EscuelaSeeder::class);
+
+        $this->call(Categoria_GeorefSeeder::class);
         // \App\Models\User::factory(10)->create();
 
 
 
- 
+
 
     }
 }
