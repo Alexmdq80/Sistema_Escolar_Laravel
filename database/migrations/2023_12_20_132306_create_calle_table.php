@@ -25,13 +25,17 @@ return new class extends Migration
                     $table->foreign('id_continente')->references('id')->on('continente');
                     $table->smallInteger('id_localidad_censal')->unsigned()->nullable();
                     $table->foreign('id_localidad_censal')->references('id')->on('localidad_censal');
+                    $table->tinyInteger('id_fuente_georef')->unsigned()->nullable();
+                    $table->foreign('id_fuente_georef')->references('id')->on('fuente_georef');
+                    $table->tinyInteger('id_categoria_georef')->unsigned()->nullable();
+                    $table->foreign('id_categoria_georef')->references('id')->on('categoria_georef');
                     $table->string('nombre', 55);
                     $table->integer('altura_fin_derecha')->nullable();
                     $table->integer('altura_fin_izquierda')->nullable();
                     $table->integer('altura_inicio_derecha')->nullable();
                     $table->integer('altura_inicio_izquierda')->nullable();
-                    $table->string('fuente', 50)->nullable();
-                    $table->string('categoria', 50)->nullable();
+                    // $table->string('fuente', 50)->nullable();
+                    // $table->string('categoria', 50)->nullable();
             });
         }
     }
