@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modalidad', function (Blueprint $table) {
-            $table->tinyInteger('id')->unsigned()->primary();
-            $table->string('nombre', 50);
-            $table->tinyInteger('orden');
-            $table->boolean('vigente');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('modalidad')) {
+            Schema::create('modalidad', function (Blueprint $table) {
+                $table->tinyInteger('id')->unsigned()->primary();
+                $table->string('nombre', 50);
+                $table->tinyInteger('orden');
+                $table->boolean('vigente');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modalidad');
+        // Schema::dropIfExists('modalidad');
     }
 };

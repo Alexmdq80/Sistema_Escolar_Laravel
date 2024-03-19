@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ciclo_lectivo', function (Blueprint $table) {
-            $table->smallInteger('id')->unsigned()->primary();
+            $table->tinyInteger('id')->unsigned()->primary();
             $table->year('nombre');
             $table->tinyInteger('orden');
             $table->boolean('vigente');

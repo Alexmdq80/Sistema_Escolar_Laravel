@@ -10,4 +10,5 @@ class Otras_Ofertas extends Model
     use HasFactory;
 
     protected $table = "otras_ofertas";
+
 }

@@ -29,7 +29,7 @@ return new class extends Migration
             $table->foreign('id_modalidad_procedencia')->references('id')->on('modalidad');
             $table->unsignedTinyInteger('id_condicion')->nullable();
             $table->foreign('id_condicion')->references('id')->on('condicion');
-            $table->unsignedSmallInteger('id_ciclo_lectivo')->nullable();
+            $table->unsignedtinyInteger('id_ciclo_lectivo')->nullable();
             $table->foreign('id_ciclo_lectivo')->references('id')->on('ciclo_lectivo');
             $table->string('codigo_abc', 10)->nullable();
             $table->boolean('activo');

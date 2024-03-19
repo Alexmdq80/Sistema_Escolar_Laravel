@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('otras_ofertas', function (Blueprint $table) {
-            $table->tinyInteger('id')->unsigned()->primary();
-            $table->string('nombre', 50);
-            $table->tinyInteger('orden');
-            $table->boolean('vigente');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('otras_ofertas')) {
+            Schema::create('otras_ofertas', function (Blueprint $table) {
+                $table->tinyInteger('id')->unsigned()->primary();
+                $table->string('nombre', 50);
+                $table->tinyInteger('orden');
+                $table->boolean('vigente');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('otras_ofertas');
+        // Schema::dropIfExists('otras_ofertas');
     }
 };
