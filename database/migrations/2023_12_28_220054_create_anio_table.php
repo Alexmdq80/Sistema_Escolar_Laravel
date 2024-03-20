@@ -12,11 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('anio', function (Blueprint $table) {
-            $table->tinyInteger('id')->unsigned()->primary();
-            $table->tinyInteger('id_plan_estudio')->unsigned();
+            $table->mediumIncrements('id');
+            $table->smallInteger('id_plan_estudio')->unsigned();
             $table->foreign('id_plan_estudio')->references('id')->on('plan_estudio');
-            $table->string('anio', 3);
-            $table->string('nombre', 50);
+            // el nombre es como quiero que aparezca en pantalla.
+            // por ej. A.F., el nombre completo será AULA DE FORTALECIMIENT
+            // NOMBRE: 1, COMPLETO: PRIMERO.
+            $table->string('nombre',20);
+            $table->string('nombre_completo',60);
+            // EL AÑO ABSOLUTO ES EL AÑO QUE CORRESPONDE
+            // AL SECUNDARIO, EN EL CASO ACTUAL DE 1 A 6.
+            $table->tinyInteger('anio_absoluto');
+            // EL AÑÓ RELATIVO ES EL AÑÓ QUE CORRESPONDE
+            // AL CILO DE AÑOS, BÁSICO O SUPERIOR. 1 A 3 AÑOS.
+            // POR EJ. AÑO RELATIVO 1 CICLO SUPERIOR
+            // ES AÑO ABSOLUTO 4 SECUNDARIO
+            $table->tinyInteger('anio_relativo');
             $table->timestamps();
         });
     }

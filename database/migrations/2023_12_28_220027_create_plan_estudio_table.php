@@ -12,9 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('plan_estudio', function (Blueprint $table) {
-            $table->tinyInteger('id')->unsigned()->primary();
+            $table->smallIncrements('id');
+            $table->tinyInteger('id_plan_ciclo')->unsigned();
+            $table->foreign('id_plan_ciclo')->references('id')->on('plan_ciclo');
             $table->string('nombre', 60);
             $table->string('titulo', 75);
+            $table->tinyInteger('duracion_anios')->unsigned();
             $table->string('resolucion', 50);
             $table->string('orientacion', 50);
             $table->timestamps();

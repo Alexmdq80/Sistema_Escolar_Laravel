@@ -17,7 +17,13 @@ return new class extends Migration
             $table->foreign('id_persona')->references('id')->on('persona');
             $table->unsignedInteger('id_persona_firma')->nullable();
             $table->foreign('id_persona_firma')->references('id')->on('persona');
-            $table->unsignedSmallInteger('id_espacio_academico');
+            $table->unsignedsmallInteger('id_plan_estudio');
+            $table->foreign('id_plan_estudio')->references('id')->on('plan_estudio');
+            $table->unsignedmediumInteger('id_anio');
+            $table->foreign('id_anio')->references('id')->on('anio');
+            $table->unsignedInteger('id_propuesta_institucional');
+            $table->foreign('id_propuesta_institucional')->references('id')->on('propuesta_institucional');
+            $table->unsignedbigInteger('id_espacio_academico');
             $table->foreign('id_espacio_academico')->references('id')->on('espacio_academico');
             $table->unsignedMediumInteger('id_escuela_procedencia')->nullable();
             $table->foreign('id_escuela_procedencia')->references('id')->on('escuela');
@@ -29,9 +35,12 @@ return new class extends Migration
             $table->foreign('id_modalidad_procedencia')->references('id')->on('modalidad');
             $table->unsignedTinyInteger('id_condicion')->nullable();
             $table->foreign('id_condicion')->references('id')->on('condicion');
-            $table->unsignedtinyInteger('id_ciclo_lectivo')->nullable();
+            $table->unsignedTinyInteger('id_ciclo_lectivo');
             $table->foreign('id_ciclo_lectivo')->references('id')->on('ciclo_lectivo');
             $table->string('codigo_abc', 10)->nullable();
+            $table->boolean('proyecto_inclusion_si');
+            $table->boolean('concurre_especial_si');
+            $table->boolean('asistente_externo_si');
             $table->boolean('activo');
             $table->boolean('pase');
             $table->boolean('sinpase');

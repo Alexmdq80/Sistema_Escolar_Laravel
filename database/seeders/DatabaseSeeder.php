@@ -24,25 +24,15 @@ class DatabaseSeeder extends Seeder
  */
         $this->call(AmbitoSeeder::class);
 
-        // $this->call(Plan_EstudioSeeder::class);
-
-        // $this->call(AnioSeeder::class);
-
         $this->call(TurnoSeeder::class);
 
         $this->call(JornadaSeeder::class);
 
-        // $this->call(Propuesta_InstitucionalSeeder::class);
-
         $this->call(Seccion_TipoSeeder::class);
-
-        // $this->call(Espacio_AcademicoSeeder::class);
 
         $this->call(DependenciaSeeder::class);
 
         $this->call(SectorSeeder::class);
-
-        // $this->call(Escuela_PISeeder::class);
 
         $this->call(NivelSeeder::class);
 
@@ -71,7 +61,18 @@ class DatabaseSeeder extends Seeder
 
         $this->call(Otras_OfertasSeeder::class);
 
+        $this->call(Plan_CicloSeeder::class);
 
+        $this->call(Plan_EstudioSeeder::class);
+
+        // $this->call(AnioSeeder::class);
+
+        // $this->call(Propuesta_InstitucionalSeeder::class);
+
+        // $this->call(Espacio_AcademicoSeeder::class);
+
+
+    // $this->call(Escuela_PISeeder::class);
 
     }
 }

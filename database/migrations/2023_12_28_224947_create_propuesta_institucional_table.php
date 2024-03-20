@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('propuesta_institucional', function (Blueprint $table) {
-            $table->smallInteger('id')->unsigned()->primary();
-            $table->tinyInteger('id_plan_estudio')->unsigned();
+            $table->increments('id');
+            $table->smallInteger('id_plan_estudio')->unsigned();
             $table->foreign('id_plan_estudio')->references('id')->on('plan_estudio');
-            $table->tinyInteger('id_anio')->unsigned();
+            $table->mediumInteger('id_anio')->unsigned();
             $table->foreign('id_anio')->references('id')->on('anio');
             $table->tinyInteger('id_turno_inicio')->unsigned();
             $table->foreign('id_turno_inicio')->references('id')->on('turno');

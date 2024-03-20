@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id')->primary();
             $table->mediumInteger('id_escuela')->unsigned();
             $table->foreign('id_escuela')->references('id')->on('escuela');
-            $table->unsignedSmallInteger('id_propuesta_institucional');
+            $table->Integer('id_propuesta_institucional')->unsigned();
             $table->foreign('id_propuesta_institucional')->references('id')->on('propuesta_institucional');
             // $table->timestamps();
         });
