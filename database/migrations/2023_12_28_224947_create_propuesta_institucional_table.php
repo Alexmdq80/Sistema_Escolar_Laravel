@@ -23,8 +23,9 @@ return new class extends Migration
             $table->foreign('id_turno_fin')->references('id')->on('turno');
             $table->tinyInteger('id_jornada')->unsigned();
             $table->foreign('id_jornada')->references('id')->on('jornada');
+            $table->tinyInteger('id_ciclo_lectivo')->unsigned();
+            $table->foreign('id_ciclo_lectivo')->references('id')->on('ciclo_lectivo');
             $table->string('nombre', 50);
-            $table->year('ciclo_lectivo');
             $table->timestamps();
         });
     }

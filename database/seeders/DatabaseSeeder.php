@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(Plan_EstudioSeeder::class);
 
-        // $this->call(AnioSeeder::class);
+        $this->call(AnioSeeder::class);
 
         // $this->call(Propuesta_InstitucionalSeeder::class);
 
