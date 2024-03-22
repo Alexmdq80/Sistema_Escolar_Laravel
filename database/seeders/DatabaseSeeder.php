@@ -55,7 +55,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Usuario_EscuelaSeeder::class);
 
         $this->call(Categoria_GeorefSeeder::class);
-        // \App\Models\User::factory(10)->create();
 
         $this->call(Ciclo_LectivoSeeder::class);
 
@@ -67,12 +66,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AnioSeeder::class);
 
-        // $this->call(Propuesta_InstitucionalSeeder::class);
+        $this->call(Propuesta_InstitucionalSeeder::class);
 
-        // $this->call(Espacio_AcademicoSeeder::class);
+        $this->call(Escuela_PISeeder::class);
 
+        $this->call(Espacio_AcademicoSeeder::class);
 
-    // $this->call(Escuela_PISeeder::class);
-
+        // \App\Models\User::factory(10)->create();
     }
 }
