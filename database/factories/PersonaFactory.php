@@ -3,11 +3,11 @@
 namespace Database\Factories;
 
 use App\Models\Persona;
-use App\Models\Documento_Tipo;
-use App\Models\Documento_Situacion;
-use App\Models\Sexo;
-use App\Models\Genero;
-use App\Models\Pais;
+// use App\Models\Documento_Tipo;
+// use App\Models\Documento_Situacion;
+// use App\Models\Sexo;
+// use App\Models\Genero;
+// use App\Models\Pais;
 use App\Models\Provincia;
 use App\Models\Departamento;
 use App\Models\Localidad_Asentamiento;
@@ -22,59 +22,76 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class PersonaFactory extends Factory
 {
-  
+
     protected $model = Persona::Class;
-  
+
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
 
-    
+
     public function definition(): array
     {
+        // VACÍO LOS ARRAY
+        // unset($nacionalidad_id_pais);
+        // unset($nacimiento_lugar_id_pais);
+        // unset($nacimiento_lugar_id_provincia);
+        // unset($nacimiento_lugar_id_departamento);
+        // unset($nacimiento_lugar_id_localidad);
+        // *9*********************
 
         $total_personas = PersonaSeeder::get_n_personas();
         $p_transGenero = PersonaSeeder::get_n_transGenero();
-        $p_noBinarios = PersonaSeeder::get_n_noBinarios(); 
+        $p_noBinarios = PersonaSeeder::get_n_noBinarios();
+        echo "TOTAL PERSONAS $total_personas --NO BINARIOS $p_noBinarios -- ";
         // CALCULO EL PORCENTAJE DE NO BINARIOS
         $porc_noBinarios = $p_noBinarios * 100 / $total_personas;
         $porc_transGenero = $p_transGenero * 100 / $total_personas;
-        
+
         // ****SEXO************
-        $sexos = Sexo::get(['id']);
+        // $sexos = Sexo::get(['id']);
+
         if ($porc_noBinarios > 4) {
         //  Si hay más de 4 cada 100, entonces ingreso un Masculino o un Femenino
-          $id_sexo = $this->faker->randomElement([1,2]);   
+          $id_sexo = $this->faker->randomElement([1,2]);
         } else {
           $id_sexo = 3;
-          PersonaSeeder::set_n_noBinarios($p_noBinarios + 1); 
+          PersonaSeeder::set_n_noBinarios($p_noBinarios + 1);
         }
-        // ********GÉNERO***********  
-        $generos = Genero::get(['id']);
+        // ********GÉNERO***********
+        // $generos = Genero::get(['id']);
+        $generos = PersonaSeeder::get_id_generos();
         if  ($porc_transGenero > 4) {
         // Si hay más de 4 cada 100 transgénero, entonces ingreso uno que coincida el género con el sexo
-          if ($id_sexo == 1) { 
+          if ($id_sexo == 1) {
             $id_genero = 2;
           } elseif ($id_sexo == 2) {
             $id_genero = 1;
           } else {
-            $id_genero = 3; 
+            $id_genero = 3;
           }
         } else {
-          $id_genero = $this->faker->randomElement($generos);
-          PersonaSeeder::set_n_transGenero($p_transGenero + 1); 
+            if ($id_sexo == 1) {
+                $id_genero = $this->faker->randomElement([1,3,4,6,7]);
+                PersonaSeeder::set_n_transGenero($p_transGenero + 1);
+            } elseif ($id_sexo == 2) {
+                $id_genero = $this->faker->randomElement([2,3,5,6,7]);
+                PersonaSeeder::set_n_transGenero($p_transGenero + 1);
+            } else {
+                $id_genero = 3;
+            }
         }
-        
-        $nombre = $this->faker->name();
-        $apellido = $this->faker->lastname();
 
-        //  ******* NACINALIDAD ******
+        $nombre = strtoupper($this->faker->name());
+        $apellido = strtoupper($this->faker->lastname());
 
-        $documento_tipos = Documento_Tipo::get(['id']); 
-        $documento_situaciones = Documento_Situacion::get(['id']);
-        $paises = Pais::get(['id']);
+        // $documento_situaciones = Documento_Situacion::get(['id']);
+        // $documento_situaciones = PersonaSeeder::get_documento_situaciones();
+        // $documento_tipos = PersonaSeeder::get_documento_tipos();
+
+        $paises = PersonaSeeder::get_id_paises();
 
         $p_conCPI = PersonaSeeder::get_n_conCPI();
         $p_fallecidos = PersonaSeeder::get_n_fallecidos();
@@ -105,7 +122,7 @@ class PersonaFactory extends Factory
         if ($edad < 20) {
           PersonaSeeder::set_n_menores($p_menores + 1);
         }
-       
+
         if ($porc_noArgentinos > 4) {
         // Si hay más de 4 cada 100 extranjeros entonces ingreso un argentino
           $nacionalidad_id_pais = 158;
@@ -124,19 +141,19 @@ class PersonaFactory extends Factory
           if ($porc_argNacidosExterior > 4 ) {
             // Si hay más de 4 cada 100 de argentinos nacidos en el exterior entonces
             // ingreso un nacido en Argentina
-            $nacimiento_lugar_id_pais = 158;   
+            $nacimiento_lugar_id_pais = 158;
           } else {
-            $nacimiento_lugar_id_pais = $this->faker->randomElement($paises);   
-            
+            $nacimiento_lugar_id_pais = $this->faker->randomElement($paises);
+
           }
-      
+
         } else {
-          $nacimiento_lugar_id_pais = $this->faker->randomElement($paises);   
+          $nacimiento_lugar_id_pais = $this->faker->randomElement($paises);
           $nacionalidad_id_pais = $nacimiento_lugar_id_pais;
           $CUIL_prefijo = NULL;
           $CUIL_sufijo = NULL;
           $tramite = NULL;
-          $id_documento_situacion = 4; 
+          $id_documento_situacion = 4;
           // NO POSEE DOCUMENTO ARGENTINO
           if ($porc_conCPI > 4){
           // SI HAY MÁS DE 4% CON CPI ENTONCES LE ASIGNO UN DOCUMENTO EXTRANJERO
@@ -150,39 +167,46 @@ class PersonaFactory extends Factory
             $posee_cpi_si = -1;
             $posee_docExt_si = 0;
             $documento_numero = NULL;
-          }           
-          
+          }
+
         }
 
-        if ($nacimiento_lugar_id_pais == "158") {
-          $provincias = Provincia::where('id_pais', 158)->get(['id']);
-          $nacimiento_lugar_id_provincia = $this->faker->randomElement($provincias);;
+        if ($nacimiento_lugar_id_pais == 158) {
+          $provincias = Provincia::where('id_pais', 158)->get(['id'])->pluck('id');
+          $nacimiento_lugar_id_provincia = $this->faker->randomElement($provincias);
 
-          $departamentos = Departamento::where('id_provincia', $nacimiento_lugar_id_provincia)->get(['id']);
-          $nacimiento_lugar_id_departamento = $this->faker->randomElement($departamentos);;
-          
-          $localidades = Localidad_Asentamiento::where('id_departamento', $nacimiento_lugar_id_departamento)->get(['id']);
-          $nacimiento_lugar_id_localidad_asentamiento = $this->faker->randomElement($localidades);;
+          $departamentos = Departamento::where('id_provincia', $nacimiento_lugar_id_provincia)->get(['id'])->pluck('id');
+          if ($departamentos == NULL) {
+            $nacimiento_lugar_id_departamento = NULL;
+          } else {
+            $nacimiento_lugar_id_departamento = $this->faker->randomElement($departamentos);
+          }
+          $localidades = Localidad_Asentamiento::where('id_departamento', $nacimiento_lugar_id_departamento)->get(['id'])->pluck('id');
+          if ($localidades == NULL) {
+            $nacimiento_lugar_id_localidad = NULL;
+          } else {
+            $nacimiento_lugar_id_localidad = $this->faker->randomElement($localidades);
+          }
 
         } else {
           $nacimiento_lugar_id_provincia = NULL;
           $nacimiento_lugar_id_departamento = NULL;
-          $nacimiento_lugar_id_localidad_asentamiento = NULL;
-          if ($nacionalidad_id_pais == "158") {
+          $nacimiento_lugar_id_localidad = NULL;
+          if ($nacionalidad_id_pais == 158) {
             PersonaSeeder::set_n_argNacidosExterior($p_argNacidosExterior + 1);
           }
           PersonaSeeder::set_n_noArgentinos($p_noArgentinos + 1);
         }
-
-
+        // print_r("Localidad: " . $nacimiento_lugar_id_localidad);
+        // var_dump($nacimiento_lugar_id_localidad);
         PersonaSeeder::set_n_personas($total_personas + 1);
 
-     
+
         // PersonaSeeder::set_n_sinDNI(); NO LO USO POR AHORA???
-  
+
         // PersonaSeeder::set_n_sinDNIsinDocExt(); NO LO USO POR AHORA???
-  
-   
+
+
 
         // echo "nombre: $nombre"."\n";
         // echo "apellido: $apellido"."\n";
@@ -200,16 +224,16 @@ class PersonaFactory extends Factory
             'id_documento_situacion' => $id_documento_situacion,
             'id_sexo' => $id_sexo,
             'id_genero' => $id_genero,
-            'nacionalidad_id_pais' => $nacionalidad_id_pais, 
+            'nacionalidad_id_pais' => $nacionalidad_id_pais,
             'nacimiento_lugar_id_pais' => $nacimiento_lugar_id_pais,
             'nacimiento_lugar_id_provincia' => $nacimiento_lugar_id_provincia,
             'nacimiento_lugar_id_departamento' => $nacimiento_lugar_id_departamento,
-            'nacimiento_lugar_id_localidad_asentamiento' => $nacimiento_lugar_id_localidad_asentamiento, 
-            'documento_numero' => $documento_numero, 
+            'nacimiento_lugar_id_localidad_asentamiento' => $nacimiento_lugar_id_localidad,
+            'documento_numero' => $documento_numero,
             'tramite'=> $tramite,
-            'posee_cpi_si' => $posee_cpi_si, 
+            'posee_cpi_si' => $posee_cpi_si,
             'posee_docExt_si' => $posee_docExt_si,
-            'vive_si' => $vive_si, 
+            'vive_si' => $vive_si,
             'CUIL_prefijo' => $CUIL_prefijo,
             'CUIL_sufijo' => $CUIL_sufijo,
             'nacimiento_fecha' => $nacimiento_fecha
