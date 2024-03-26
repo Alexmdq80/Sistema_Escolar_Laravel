@@ -226,14 +226,18 @@ class PersonaSeeder extends Seeder
 
         self::set_n_conCPI(Persona::where('posee_cpi_si','<>', 0)->count());
 
-        print_r(PersonaSeeder::get_n_personas());
+        // print_r(PersonaSeeder::get_n_personas());
 
-        $paises = Pais::get(['id'])->pluck('id');
+        // $paises = Pais::get(['id'])->pluck('id');
+        $paises = Pais::get(['id']);
+
         self::set_id_paises($paises);
 
         // self::set_sexos(Sexo::get(['id']));
 
-        $generos = Genero::get(['id'])->pluck('id');
+        // $generos = Genero::get(['id'])->pluck('id');
+        $generos = Genero::get(['id']);
+
         self::set_id_generos($generos);
 
         // var_dump(self::get_paises());
@@ -241,6 +245,11 @@ class PersonaSeeder extends Seeder
         // self::set_documento_tipos(Documento_Tipo::get(['id']));
         // self::set_documento_situaciones(Documento_Situacion::get(['id']));
 
+        // $prueba = (object) [
+        //             'id' => '12345679'
+        //             ];
+
+        // echo "$prueba->id";
          Persona::factory(500)->create();
         //
     }
