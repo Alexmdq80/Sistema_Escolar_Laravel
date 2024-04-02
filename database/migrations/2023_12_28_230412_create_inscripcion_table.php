@@ -19,8 +19,12 @@ return new class extends Migration
             $table->foreign('id_persona_firma')->references('id')->on('persona');
             $table->unsignedsmallInteger('id_plan_estudio');
             $table->foreign('id_plan_estudio')->references('id')->on('plan_estudio');
-            $table->unsignedmediumInteger('id_anio');
+            $table->tinyInteger('id_plan_ciclo')->unsigned();
+            $table->foreign('id_plan_ciclo')->references('id')->on('plan_ciclo');
+            $table->tinyInteger('id_anio')->unsigned();
             $table->foreign('id_anio')->references('id')->on('anio');
+            $table->mediumInteger('id_anio_plan')->unsigned();
+            $table->foreign('id_anio_plan')->references('id')->on('anio_plan');
             $table->unsignedInteger('id_propuesta_institucional');
             $table->foreign('id_propuesta_institucional')->references('id')->on('propuesta_institucional');
             $table->unsignedbigInteger('id_espacio_academico');

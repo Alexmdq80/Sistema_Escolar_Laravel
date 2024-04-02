@@ -12,14 +12,18 @@ class Espacio_AcademicoSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function guardar($pi, $anio, $division_n, $division_x):void {
+    public function guardar($pi, $anio, $division_n, $division_nombre):void {
         $ea = new Espacio_Academico();
         $ea->id_plan_estudio = $pi->id_plan_estudio;
+        $ea->id_plan_ciclo = $pi->id_plan_ciclo;
         $ea->id_anio = $pi->id_anio;
+        $ea->id_anio_plan = $pi->id_anio_plan;
         $ea->id_propuesta_institucional = $pi->id;
         $ea->id_seccion_tipo = 1;
+        $ea->id_turno_inicio = $pi->id_turno_inicio;
+        $ea->id_turno_fin = $pi->id_turno_fin;
         $ea->division = $division_n;
-        $ea->nombre = $anio->nombre . " " . $division_x;
+        $ea->division_nombre = $division_nombre;
         $ea->save();
     }
 
@@ -43,6 +47,8 @@ class Espacio_AcademicoSeeder extends Seeder
                            case 1:
                             // TURNO MAÑANA
                                 if ($anio[0]->anio_absoluto == 1 or $anio[0]->anio_absoluto == 2) {
+                                    // CICLO BÁSICO ************************************************
+                                    //TURNO MAÑANA 1 1 y 1 2 / 2 1 Y 2 2
                                     //TURNO MAÑANA 1 1 y 1 2 / 2 1 Y 2 2
                                     $this->guardar($pi, $anio[0], "1", "PRIMERA");
                                     $this->guardar($pi, $anio[0], "2", "SEGUNDA");
@@ -53,8 +59,8 @@ class Espacio_AcademicoSeeder extends Seeder
                                     $this->guardar($pi, $anio[0], "5", "QUINTA");
                                 }
                                 break;
-                           case 2:
-                            // TURNO TARDE
+                            case 2:
+                                // TURNO TARDE
                                 //TURNO TARDE 1 3 y 1 4 / 2 3 Y 2 4 / 3 3 Y 3 4
                                 $this->guardar($pi, $anio[0], "3", "TERCERA");
                                 $this->guardar($pi, $anio[0], "4", "CUARTA");

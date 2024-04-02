@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Anio extends Model
+class Anio_Plan extends Model
 {
-    protected $table = "anio";
-
     use HasFactory;
+
+    protected $table = "anio_plan";
+
 }

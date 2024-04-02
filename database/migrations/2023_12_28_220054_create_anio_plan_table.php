@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plan_estudio', function (Blueprint $table) {
-            $table->smallIncrements('id');
+        Schema::create('anio_plan', function (Blueprint $table) {
+            $table->mediumIncrements('id');
+            $table->smallInteger('id_plan_estudio')->unsigned();
+            $table->foreign('id_plan_estudio')->references('id')->on('plan_estudio');
             $table->tinyInteger('id_plan_ciclo')->unsigned();
             $table->foreign('id_plan_ciclo')->references('id')->on('plan_ciclo');
-            $table->string('nombre', 60);
-            $table->string('nombre_completo', 120);
-            $table->tinyInteger('duracion_anios')->unsigned();
-            $table->string('resolucion', 70);
-            $table->string('orientacion', 70);
+            $table->tinyInteger('id_anio')->unsigned();
+            $table->foreign('id_anio')->references('id')->on('anio');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plan_estudio');
+        Schema::dropIfExists('anio_plan');
     }
 };

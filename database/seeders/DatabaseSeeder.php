@@ -66,6 +66,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AnioSeeder::class);
 
+        $this->call(Anio_PlanSeeder::class);
+
         $this->call(Propuesta_InstitucionalSeeder::class);
 
         $this->call(Escuela_PISeeder::class);
