@@ -250,7 +250,7 @@ class PersonaSeeder extends Seeder
         //             ];
 
         // echo "$prueba->id";
-         Persona::factory(2000)->create();
+         Persona::factory(500)->create();
         //
     }
 }

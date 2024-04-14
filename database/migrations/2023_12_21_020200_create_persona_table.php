@@ -34,7 +34,6 @@ return new class extends Migration
             $table->Integer('documento_numero')->unsigned()->nullable();
             $table->string('apellido', 50);
             $table->string('nombre', 50);
-            $table->string('nombre_alternativo', 50)->nullable();
             $table->bigInteger('tramite')->unsigned()->nullable();
             $table->boolean('posee_cpi_si')->nullable();
             $table->boolean('posee_docExt_si')->nullable();

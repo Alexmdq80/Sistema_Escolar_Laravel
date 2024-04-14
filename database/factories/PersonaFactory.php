@@ -64,26 +64,19 @@ class PersonaFactory extends Factory
         // $generos = Genero::get(['id']);
         $generos = PersonaSeeder::get_id_generos();
         $id_genero = new Genero;
-        $nombre_alternativo = NULL;
         if  ($porc_transGenero > 4) {
-          // Si hay más de 4 cada 100 transgénero, entonces ingreso uno que coincida el género con el sexo
+        // Si hay más de 4 cada 100 transgénero, entonces ingreso uno que coincida el género con el sexo
           if ($id_sexo == 1) {
-            $nombre = $this->faker->name('male');
             $id_genero->id = 2;
             // $id_genero = (object) ['id' => 2];
           } elseif ($id_sexo == 2) {
-            $nombre = $this->faker->name('female');
             $id_genero->id = 1;
             // $id_genero = (object) ['id' => 1];
           } else {
-            $nombre = $this->faker->name();
             $id_genero->id = 3;
             // $id_genero = (object) ['id' => 3];
           }
         } else {
-            $nombre_alternativo = strtoupper($this->faker->name());
-            $nombre = $this->faker->name();
-
             if ($id_sexo == 1) {
                 // $id_genero = $this->faker->randomElement([1,3,4,6,7]);
                 $id_genero->id = $this->faker->randomElement([1,3,4,6,7]);
@@ -102,8 +95,9 @@ class PersonaFactory extends Factory
         // print_r($id_genero);
         // print_r($generos);
 
-        $nombre = mb_strtoupper($nombre, "UTF-8");
-        $apellido = mb_strtoupper($this->faker->lastname(), "UTF-8");
+
+        $nombre = strtoupper($this->faker->name());
+        $apellido = strtoupper($this->faker->lastname());
 
         // $documento_situaciones = Documento_Situacion::get(['id']);
         // $documento_situaciones = PersonaSeeder::get_documento_situaciones();
@@ -283,7 +277,6 @@ class PersonaFactory extends Factory
         return [
             'nombre' => $nombre,
             'apellido' => $apellido,
-            'nombre_alternativo' => $nombre_alternativo,
             'id_documento_tipo' => $id_documento_tipo,
             'id_documento_situacion' => $id_documento_situacion,
             'id_sexo' => $id_sexo,
